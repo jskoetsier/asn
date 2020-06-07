@@ -9,13 +9,6 @@ from gozerbot.tests import tests
 
 plughelp.add('asn', 'lookup ASN via peeringdb')
 
-def doreq(asnumber_in):
-    url = "http://peeringdb.com/api/net?asn=" + asnumber_in
-    resp = requests.get(url=url)
-    pdb_json = json.loads(resp.text)
-    network_name = pdb_json['data'][0]['name']
-    return
-
 def handle_asn(bot, ievent):
     asnumber_in = ""
     try: what = ievent.args[0]
