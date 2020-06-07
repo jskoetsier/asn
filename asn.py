@@ -24,10 +24,10 @@ def handle_asn(bot, ievent):
     except IndexError: ievent.missing("<asn>"); return
     try:
          asnumber_in = int(what)
-         asnumber_out = pdb.all('net', asn=asnumber_in)[0]
+         net = pdb.all('net', asn=asnumber_in)[0]
+         network_nice = pprint(net)
     except Exception, ex: ievent.reply("Invalid ASN: %s" % asnumber_in) ; return
-    ievent.reply ('%s is %s') % (asnumber_in, net)
-
+    ievent.reply ('%s is %s') % (asnumber_in, network_nice)
          
            
 cmnds.add('asn', handle_asn, 'USER')
