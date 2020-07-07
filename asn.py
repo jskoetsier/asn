@@ -15,13 +15,13 @@ def handle_asn(bot, ievent):
     except IndexError: ievent.missing("<asn>"); return
     try:
          asnumber_in = what
-         url = "http://peeringdb.com/api/net?asn=" + asnumber_in
+         url = "https://stat.ripe.net/data/as-overview/data.json?resource=" + asnumber_in
          resp = requests.get(url=url)
          pdb_json = json.loads(resp.text)
-         network_name = pdb_json['data'][0]['name']
+         network_name = pdb_json['data'][0]['holder']
          resultstring = "AS Number: %s has name: %s" % (asnumber_in, network_name)
          ievent.reply(resultstring)
-    except Exception, ex: ievent.reply("Invalid ASN or unknown in peeringdb") ; return
+    except Exception, ex: ievent.reply("Invalid ASN") ; return
 
 
 cmnds.add('asn', handle_asn, 'USER')
