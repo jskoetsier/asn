@@ -25,7 +25,7 @@ def handle_asn(bot, ievent):
 
 
 cmnds.add('asn', handle_asn, 'USER')
-examples.add('asn', 'Lookup as number on peeringdb', 'asn 8315')
+examples.add('asn', 'Lookup as number on ripestat', 'asn 8315')
 tests.add('asn 8315')
 
 ### In elkaar gerost door phreak ergens in 2020.
